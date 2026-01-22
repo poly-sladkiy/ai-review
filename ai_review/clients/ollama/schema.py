@@ -1,11 +1,18 @@
-from typing import Literal
+import re
+from typing import Literal, Annotated
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, BeforeValidator
+
+
+def remove_think_section(content: str) -> str:
+    pattern = r"<think>.*?</think>"
+    cleaned_text = re.sub(pattern, "", content, flags=re.DOTALL)
+    return cleaned_text
 
 
 class OllamaMessageSchema(BaseModel):
     role: Literal["system", "user", "assistant"]
-    content: str
+    content: Annotated[str, BeforeValidator(remove_think_section)]
 
 
 class OllamaOptionsSchema(BaseModel):

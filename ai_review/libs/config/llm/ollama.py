@@ -1,4 +1,4 @@
-from ai_review.libs.config.http import HTTPClientConfig
+from ai_review.libs.config.http import HTTPClientWithTokenConfig
 from ai_review.libs.config.llm.meta import LLMMetaConfig
 
 
@@ -11,5 +11,5 @@ class OllamaMetaConfig(LLMMetaConfig):
     repeat_penalty: float | None = None
 
 
-class OllamaHTTPClientConfig(HTTPClientConfig):
+class OllamaHTTPClientConfig(HTTPClientWithTokenConfig):
     pass
