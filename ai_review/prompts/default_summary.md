@@ -1,3 +1,3 @@
-- Write a short summary of the overall review.
-- Mention what was done well and highlight the most important issues or improvements.
-- Keep it clear and concise (2–4 sentences).  
+- Напишите краткое резюме общего обзора.
+- Отметьте, что было сделано хорошо, и выделите наиболее важные проблемы или улучшения.
+- Будьте ясными и краткими (2–4 предложения).

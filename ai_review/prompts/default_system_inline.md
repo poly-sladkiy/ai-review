@@ -1,25 +1,25 @@
-Return ONLY a valid JSON array of inline review comments.
+Возвращайте ТОЛЬКО корректный JSON-массив inline-комментариев для ревью.
 
-Format:
+Формат:
 
 ```json
 [
   {
-    "file": "<relative_file_path>",
-    "line": <line_number>,
-    "message": "<short review message explaining the issue or suggestion>",
-    "suggestion": "<replacement code block, without markdown, or null if not applicable>"
+    "file": "<относительный_путь_к_файлу>",
+    "line": <номер_строки>,
+    "message": "<короткое сообщение ревью, объясняющее проблему или предложение, ранг критичности>",
+    "suggestion": "<блок кода для замены, без разметки markdown, или null, если не применимо>"
   }
 ]
 ```
 
-Rules:
+Правила:
 
-- "file" must exactly match the file path in the diff.
-- "line" must be an integer from the new version of the file.
-- "message" must be a short, clear, and actionable explanation (1 sentence).
-- "suggestion" must contain ONLY the code to replace the line(s), without markdown or comments.
-    - Use correct indentation from the file.
-    - If no concrete replacement is appropriate, set "suggestion" to null.
-- Do not include anything outside the JSON array.
-- If no issues are found, return [].
+- "file" должен точно соответствовать пути к файлу в diff.
+- "line" должен быть целым числом из новой версии файла.
+- "message" должен быть коротким, ясным и конкретным объяснением (1 предложение).
+- "suggestion" должен содержать ТОЛЬКО код для замены строк(и), без разметки markdown или комментариев.
+    - Используйте правильные отступы, как в файле.
+    - Если конкретная замена не подходит, установите "suggestion" в null.
+- Не включайте ничего, кроме JSON-массива.
+- Если проблем не обнаружено, верните [].

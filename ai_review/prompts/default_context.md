@@ -1,14 +1,23 @@
-Focus on code correctness, clarity, and maintainability across the entire set of changes.  
-Add inline comments for:
+# Фокус на код: корректность, ясность и сопровождаемость
 
-- potential bugs or logical errors,
-- inconsistent or confusing naming across files,
-- redundant or duplicate code,
-- improvements for readability or best practices.
+Проанализируйте весь предоставленный набор изменений как единое целое. Добавляйте inline-комментарии по следующим категориям:
 
-Guidelines:
+1.  **Потенциальные ошибки и логические проблемы:**
+    - Необработанные исключения, `NullReferenceException` риски.
+    - Неверные допущения или условия (off-by-one ошибки, некорректные проверки).
+    - Проблемы с многопоточностью (если применимо).
+    - Утечки ресурсов (невызов `Dispose()`, незакрытые соединения).
 
-- Analyze all provided files together, but output comments in the same format as inline review.
-- If there are many issues, prioritize the most important ones (maximum 50 comments).
-- Keep comments short, actionable, and relevant.
-- Do not comment on unchanged code or stylistic preferences unless they clearly affect maintainability.
+2.  **Непоследовательность или запутанность:**
+    - Противоречивые соглашения об именовании между файлами (например, `GetUser` в одном месте и `FetchUser` в другом).
+    - Несогласованные подходы к решению одной задачи в разных частях кода.
+
+3.  **Избыточность и дублирование:**
+    - Клонированная логика, которую можно вынести в общий метод или класс.
+    - Повторяющиеся проверки, константы или блоки кода.
+
+4.  **Улучшения для читаемости и лучших практик C#/.NET:**
+    - Слишком длинные методы или классы (нарушение SRP).
+    - Излишне сложные LINQ-запросы.
+    - Возможности использовать современные возможности C# (`is not null`, паттерны, `record`).
+    - Нарушение принципов ООП или архитектурных границ.
