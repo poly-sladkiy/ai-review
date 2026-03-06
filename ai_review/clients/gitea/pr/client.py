@@ -56,7 +56,7 @@ class GiteaPullRequestsHTTPClient(HTTPClient, GiteaPullRequestsHTTPClientProtoco
             query: GiteaGetPRCommentsQuerySchema
     ) -> Response:
         return await self.get(
-            f"/repos/{owner}/{repo}/issues/{pull_number}/comments",
+            f"/repos/{owner}/{repo}/pulls/{pull_number}/reviews",
             query=QueryParams(**query.model_dump())
         )
 

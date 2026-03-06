@@ -5,16 +5,18 @@ from ai_review.clients.gitea.pr.schema.user import GiteaUserSchema
 
 class GiteaPRCommentSchema(BaseModel):
     id: int
-    body: str
-    path: str | None = None
-    line: int | None = None
     user: GiteaUserSchema | None = None
-    resolver: GiteaUserSchema | None = None
-    position: int | None = None
+    state: str
+    body: str
     commit_id: str | None = None
-    original_position: int | None = None
-    original_commit_id: str | None = None
-    pull_request_review_id: int | None = None
+    stale: bool
+    official: bool
+    dismissed: bool
+    comments_count: int
+    submitted_at: str
+    updated_at: str
+    html_url: str
+    pull_request_url: str
 
 
 class GiteaGetPRCommentsQuerySchema(BaseModel):

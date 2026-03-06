@@ -15,8 +15,8 @@ def get_review_comment_from_gitea_comment(comment: GiteaPRCommentSchema) -> Revi
     return ReviewCommentSchema(
         id=comment.id,
         body=comment.body or "",
-        file=comment.path,
-        line=comment.line,
+        file=None,
+        line=None,
         author=get_user_from_gitea_user(comment.user),
-        thread_id=comment.id
+        thread_id=None
     )
