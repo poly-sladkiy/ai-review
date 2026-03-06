@@ -40,7 +40,7 @@ class ReviewCommentGateway(ReviewCommentGatewayProtocol):
         comments = await self.vcs.get_inline_comments()
         inline_comments = [
             comment for comment in comments
-            if settings.review.inline_tag in comment.body
+            if settings.review.inline_tag in comment.body or "Inline review" in comment.body
         ]
         logger.info(f"Detected {len(inline_comments)}/{len(comments)} AI inline comments")
         return inline_comments
