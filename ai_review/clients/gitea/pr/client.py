@@ -92,7 +92,7 @@ class GiteaPullRequestsHTTPClient(HTTPClient, GiteaPullRequestsHTTPClientProtoco
 
     @handle_http_error(client="GiteaPullRequestsHTTPClient", exception=GiteaPullRequestsHTTPClientError)
     async def delete_review_comment_api(self, owner: str, repo: str, comment_id: int | str) -> Response:
-        return await self.delete(f"/repos/{owner}/{repo}/pulls/reviews/{comment_id}")
+        return await self.delete(f"/repos/{owner}/{repo}/pulls/{settings.vcs.pipeline.pull_number}/reviews/{comment_id}")
 
     async def get_pull_request(self, owner: str, repo: str, pull_number: str) -> GiteaGetPRResponseSchema:
         response = await self.get_pull_request_api(owner, repo, pull_number)
